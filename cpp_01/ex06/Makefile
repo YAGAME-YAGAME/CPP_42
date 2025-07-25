@@ -1,9 +1,7 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-OBJS = $(SRCS:.cpp=.o)
 
-# colors
+#colors
 RED = \033[31m
 GREEN = \033[32m
 YELLOW = \033[33m
@@ -12,8 +10,9 @@ MAGENTA = \033[35m
 CYAN = \033[36m
 RESET = \033[0m
 
-
-NAME = weapon
+SRCS = main.cpp Harl.cpp
+OBJS = $(SRCS:.cpp=.o)
+NAME = harl
 
 all: $(NAME)
 
@@ -22,7 +21,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)Compilation is complete! the Executable is ready! $(NAME)$(RESET)"
 
-%.o: %.cpp  HumanA.hpp HumanB.hpp Weapon.hpp
+%.o: %.cpp Harl.hpp
 	@echo "$(YELLOW)Compiling  to object file $<...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 clean:
@@ -34,4 +33,4 @@ fclean: clean
 	@echo "$(RED)Executable removed!$(RESET)"
 re: fclean all
 	@echo "$(BLUE)Recompilation complete!$(RESET)"
-.PHONY: all clean fclean re
+.PHONY: all clean fclean rebuild
