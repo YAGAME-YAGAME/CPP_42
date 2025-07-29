@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <math.h>
 
 class Fixed{
     private:
