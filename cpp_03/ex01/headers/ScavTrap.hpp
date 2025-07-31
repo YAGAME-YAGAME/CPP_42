@@ -11,7 +11,8 @@ class ScavTrap : public ClapTrap {
         ScavTrap(const ScavTrap& other);  // Copy constructor
         ~ScavTrap();  // Destructor
         
-        ScavTrap& operator=(const ScavTrap& other);  // Copy assignment operator
+        ScavTrap& operator=(const ScavTrap& other);
+          // Copy assignment operator
 
         void guardGate();  // New method specific to ScavTrap
 };

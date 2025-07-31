@@ -23,7 +23,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)Compilation is complete! the Executable is ready! $(NAME)$(RESET)"
 
-%.o: %.cpp ClapTrap.hpp
+%.o: %.cpp ../headers/ClapTrap.hpp ../headers/ScavTrap.hpp
 	@echo "$(YELLOW)Compiling  to object file $<...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 clean:

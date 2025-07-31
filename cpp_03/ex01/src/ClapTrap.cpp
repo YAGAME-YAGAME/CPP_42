@@ -1,4 +1,4 @@
-# include "ClapTrap.hpp"
+# include "../headers/ClapTrap.hpp"
 
 // Default constructor
 ClapTrap::ClapTrap(): name("Default"), hitPoints(10), energyPoints(10), attackDamage(0) {

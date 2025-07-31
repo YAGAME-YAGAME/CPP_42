@@ -1,4 +1,4 @@
-#ifndef CLAPTRAP_HPPx≈∫
+#ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
 #include <string>
