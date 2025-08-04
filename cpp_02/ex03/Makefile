@@ -10,9 +10,9 @@ MAGENTA = \033[35m
 CYAN = \033[36m
 RESET = \033[0m
 
-SRCS = main.cpp Fixed.cpp
+SRCS = src/main.cpp src/Fixed.cpp src/Point.cpp src/bsp.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = orthodox
+NAME = bsp
 
 all: $(NAME)
 
@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)Compilation is complete! the Executable is ready! $(NAME)$(RESET)"
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp headers/Fixed.hpp headers/Point.hpp
 	@echo "$(YELLOW)Compiling  to object file $<...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 clean:

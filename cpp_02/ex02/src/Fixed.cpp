@@ -1,67 +1,54 @@
-#include "Fixed.hpp"
+#include "../headers/Fixed.hpp"
 
 
-Fixed::Fixed():_value(0){
+Fixed::Fixed():_fixedPoint(0){};
 
-    // std::cout << "default constructor called" << std::endl;
-};
-
-Fixed::~Fixed(){
-    // std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed(){}
 
 Fixed::Fixed(const Fixed& other)
 {
-    // std::cout<<"copy constructor called"<<std::endl;
     this->operator=(other);
     
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-    // std::cout<<"copy  assignment operator called"<<std::endl;
     if(this != &other)
     {
-        this->_value = other._value;
+        this->_fixedPoint = other._fixedPoint;
     }
     return (*this);
 }
 
 Fixed::Fixed(const float floatValue)
 {
-    // std::cout << "float constructor called" << std::endl;
-    this->_value = static_cast<int>(roundf(floatValue * (1 << _fraction)));
+    this->_fixedPoint = static_cast<int>(roundf(floatValue * (1 << _fraction)));
 }
 
 Fixed::Fixed(const int realValue)
 {
-    // std::cout << "int constructor called" << std::endl;
-    this->_value = realValue << _fraction;
+    this->_fixedPoint = realValue << _fraction;
 }   
 
 
 void Fixed::setRawBits(int const raw)
 {
-    // std::cout << "setRawBits member function called" << std::endl;
-    this->_value = raw;
+    this->_fixedPoint = raw;
 }
 
 int Fixed::getRawBits() const
 {
-    // std::cout << "getRawBits member function called" << std::endl;
-    return this->_value;
+    return this->_fixedPoint;
 }
 
 int Fixed::toInt(void) const
 {
-    // Convert the fixed-point value to integer
-    return this->_value >> _fraction;
+    return this->_fixedPoint >> _fraction;
 }
 
 float Fixed::toFloat(void) const
 {
-    // Convert the fixed-point value to float
-    return static_cast<float>(this->_value) / (1 << _fraction);
+    return static_cast<float>(this->_fixedPoint) / (1 << _fraction);
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
@@ -73,56 +60,56 @@ std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
 //The 6 comparison operators: >, <, >=, <=, ==, and !=.
 bool Fixed::operator>(const Fixed &other) const
 {
-    return (this->_value > other._value);
+    return (this->_fixedPoint > other._fixedPoint);
 }
 
 bool Fixed::operator<(const Fixed &other) const
 {
-    return (this->_value < other._value);
+    return (this->_fixedPoint < other._fixedPoint);
 }
 
 bool Fixed::operator>=(const Fixed &other) const
 {
-    return (this->_value >= other._value);
+    return (this->_fixedPoint >= other._fixedPoint);
 }
 
 bool Fixed::operator<=(const Fixed &other) const
 {
-    return (this->_value <= other._value);
+    return (this->_fixedPoint <= other._fixedPoint);
 }
 bool Fixed::operator==(const Fixed &other) const
 {
-    return (this->_value == other._value);
+    return (this->_fixedPoint == other._fixedPoint);
 }
 bool Fixed::operator!=(const Fixed &other) const
 {
-    return (this->_value != other._value);
+    return (this->_fixedPoint != other._fixedPoint);
 }
 
 
  // • The 4 arithmetic operators: +, -, *, and /.
 
 Fixed Fixed::operator+(const Fixed &other) const{
-    Fixed temp(this->_value + other._value);
+    Fixed temp(this->_fixedPoint + other._fixedPoint);
     return temp;
 }
 
 Fixed Fixed::operator-(const Fixed &other) const{
-    Fixed temp(this->_value - other._value);
+    Fixed temp(this->_fixedPoint - other._fixedPoint);
     return temp;
 }
 
 Fixed Fixed::operator*(const Fixed &other) const{
     Fixed temp;
-    long long re = static_cast<long long>(this->_value) * other._value;
-    temp._value = static_cast<int>(re/( 1<< _fraction));
+    long long re = static_cast<long long>(this->_fixedPoint) * other._fixedPoint;
+    temp._fixedPoint = static_cast<int>(re/( 1<< _fraction));
     return temp;
 }
 
 Fixed Fixed::operator/(const Fixed &other) const{
     Fixed temp;
-    long long re = static_cast<long long>(this->_value) * (1 << _fraction);
-    temp._value = static_cast<int>(re/ other._value);
+    long long re = static_cast<long long>(this->_fixedPoint) * (1 << _fraction);
+    temp._fixedPoint = static_cast<int>(re/ other._fixedPoint);
     return temp;
 }
 
@@ -130,27 +117,27 @@ Fixed Fixed::operator/(const Fixed &other) const{
 
 Fixed& Fixed::operator++()
 {
-    ++(this->_value);
+    ++(this->_fixedPoint);
     return *this;
 }
 
 Fixed& Fixed::operator--()
 {
-    --(this->_value);
+    --(this->_fixedPoint);
     return *this;
 }
 
 Fixed Fixed::operator++(int)
 {
     Fixed temp(*this);
-    ++(this->_value);
+    ++(this->_fixedPoint);
     return temp;
 }
 
 Fixed Fixed::operator--(int)
 {
     Fixed temp(*this);
-    --(this->_value);
+    --(this->_fixedPoint);
     return temp;
 }
 

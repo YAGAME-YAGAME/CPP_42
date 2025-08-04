@@ -9,7 +9,7 @@
 
 class Fixed{
     private:
-        int _value;
+        int _fixedPoint;
         static const int _fraction = 8;
     public:
         Fixed();
@@ -29,7 +29,7 @@ class Fixed{
         // • The 4 arithmetic operators: +, -, *, and /.
         Fixed operator+(const Fixed &other) const ;
         Fixed operator-(const Fixed &other) const ;
-        Fixed operator*(const Fixed &othe) const ;
+        Fixed operator*(const Fixed &other) const ;
         Fixed operator/(const Fixed &other) const ;
 
         // • The increment and decrement operators: ++ and --.

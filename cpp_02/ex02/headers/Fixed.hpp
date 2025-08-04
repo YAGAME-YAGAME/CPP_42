@@ -9,7 +9,7 @@
 
 class Fixed{
     private:
-        int _value;
+        int _fixedPoint;
         static const int _fraction = 8;
     public:
         Fixed();
