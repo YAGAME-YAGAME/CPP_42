@@ -10,7 +10,7 @@ MAGENTA = \033[35m
 CYAN = \033[36m
 RESET = \033[0m
 
-SRCS = main.cpp ClapTrap.cpp
+SRCS = src/main.cpp src/ClapTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = ClapTrap
 
@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)Compilation is complete! the Executable is ready! $(NAME)$(RESET)"
 
-%.o: %.cpp ClapTrap.hpp
+%.o: %.cpp headers/ClapTrap.hpp
 	@echo "$(YELLOW)Compiling  to object file $<...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 clean:
