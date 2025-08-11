@@ -12,13 +12,6 @@
 #define BOLD    "\033[1m"
 
 int main() {
-
-    ScavTrap robot("otto");
-    ScavTrap adda(robot);
-    ScavTrap c_rot;
-    c_rot = robot;
-    robot.attack("youssef");
-    std::cout << BOLD << CYAN << "=== ClapTrap Testing ===" << RESET << std::endl;
     
     // Test 1: Default constructor
     std::cout << BOLD << GREEN << "\n--- Test 1: Default Constructor ---" << RESET << std::endl;
