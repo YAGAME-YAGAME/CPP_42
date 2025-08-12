@@ -10,7 +10,7 @@ FragTrap::FragTrap(const std::string &name): ClapTrap(name){
     _HitPoints = 100;
     _EnergyPoints = 100;
     _AttackDamage = 30;
-    std::cout << "FragTrap " << _Name << " created! "<< std::endl;
+    std::cout << "FragTrap " <<RED << _Name <<RESET<< " created! "<< std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &other): ClapTrap(other){
@@ -40,9 +40,9 @@ void FragTrap::highFivesGuys(void)
 {
     if (_HitPoints <= 0 || _EnergyPoints <= 0)
     {
-        std::cout << "FragTrap " << _Name << " cannot request a high five because it doesn't have enough energy!" << std::endl;
+        std::cout << "FragTrap " <<RED << _Name <<RESET<< " cannot request a high five because it doesn't have enough energy!" << std::endl;
         return;
     }
-    std::cout << "FragTrap " << _Name << " requests a high five!" << std::endl;
+    std::cout << "FragTrap " <<RED << _Name <<RESET<< " requests a high five!" << std::endl;
     _EnergyPoints -= 5; // Assuming high five costs 5 energy points
 }
