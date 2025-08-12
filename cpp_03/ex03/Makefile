@@ -12,7 +12,7 @@ RESET = \033[0m
 
 SRCS = src/main.cpp src/ClapTrap.cpp src/ScavTrap.cpp src/FragTrap.cpp src/DiamondTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = fragTrap
+NAME = DiamondTrap
 
 all: $(NAME)
 

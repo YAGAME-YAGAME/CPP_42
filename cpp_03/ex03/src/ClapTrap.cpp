@@ -7,7 +7,7 @@ ClapTrap::ClapTrap(): _Name(""), _HitPoints(10), _EnergyPoints(10), _AttackDamag
 
 
 ClapTrap::ClapTrap(const std::string &name): _Name(name),_HitPoints(10),_EnergyPoints(10),_AttackDamage(0){
-    // std::cout<<"ClapTrap " << _Name << " created!" << std::endl;
+    std::cout<<"ClapTrap " << _Name << " created!" << std::endl;
 };
 
 ClapTrap::ClapTrap(const ClapTrap &other): _Name(other._Name), _HitPoints(other._HitPoints), _EnergyPoints(other._EnergyPoints), _AttackDamage(other._AttackDamage){};
