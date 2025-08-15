@@ -14,7 +14,7 @@ DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), _Name("") {
 DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), _Name(name) {
     _HitPoints = FragTrap::_HitPoints;
     _EnergyPoints = ScavTrap::_EnergyPoints;
-    _AttackDamage = FragTrap::_AttackDamage;
+    _AttackDamage = FragTrap::_AttackDamage + 10;
     std::cout << "DiamondTrap " <<RED << _Name <<RESET<< " created!" << std::endl;
 }
 
