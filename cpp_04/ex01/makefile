@@ -10,7 +10,7 @@ MAGENTA = \033[35m
 CYAN = \033[36m
 RESET = \033[0m
 
-SRCS = src/main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongAnimal.cpp src/WrongCat.cpp
+SRCS = src/main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongAnimal.cpp src/WrongCat.cpp src/Brain.cpp
 OBJDIR = obj
 OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
 NAME = Animal
@@ -28,7 +28,7 @@ $(NAME): $(OBJDIR) $(OBJS)
 	@echo "$(GREEN)  \____\_|   \_|       "
 	@echo "$(GREEN)Compilation is complete! the Executable is ready! $(NAME)$(RESET)"
 
-$(OBJDIR)/%.o: src/%.cpp headers/Animal.hpp headers/Cat.hpp headers/Dog.hpp headers/WrongAnimal.hpp headers/WrongCat.hpp
+$(OBJDIR)/%.o: src/%.cpp headers/Animal.hpp headers/Cat.hpp headers/Dog.hpp headers/WrongAnimal.hpp headers/WrongCat.hpp headers/Brain.hpp
 	@echo "$(YELLOW)Compiling $< to object file $@...$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
