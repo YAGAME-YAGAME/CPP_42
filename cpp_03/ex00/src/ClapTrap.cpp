@@ -1,7 +1,7 @@
 #include "../headers/ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap():name("DefaultClapTrap"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0){};
+ClapTrap::ClapTrap():name("Default"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0){};
 
 
 ClapTrap::ClapTrap(const std::string &name): name(name),_HitPoints(10),_EnergyPoints(10),_AttackDamage(0){

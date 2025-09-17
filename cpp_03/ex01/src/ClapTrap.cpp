@@ -2,7 +2,7 @@
 
 
 ClapTrap::ClapTrap(): _Name(""), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
-    std::cout << "ClapTrap constructor called!" << std::endl;
+    std::cout << "ClapTrap default created " << std::endl;
 }
 
 

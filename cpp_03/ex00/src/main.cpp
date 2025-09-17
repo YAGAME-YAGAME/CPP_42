@@ -76,7 +76,7 @@ int main() {
     edgeTest.takeDamage(0); // Zero damage
     edgeTest.beRepaired(0); // Zero repair
     
-    std::cout << BOLD << CYAN << "\n=== Testing Complete ===" << RESET << std::endl;
-    
+    std::cout << BOLD << CYAN << "\n=== Testing  Complete ===" << RESET << std::endl;
+    std::cout << RED << "Now all object must be Destroyed" << RESET << std::endl;
     return 0;
 }
