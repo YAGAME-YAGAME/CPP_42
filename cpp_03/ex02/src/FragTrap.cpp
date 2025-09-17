@@ -3,21 +3,21 @@
 
 FragTrap::FragTrap(): ClapTrap()
 {
-    std::cout << "FragTrap default constructor called" << std::endl;
+    std::cout << "FragTrap default created " << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &name): ClapTrap(name){
     _HitPoints = 100;
     _EnergyPoints = 100;
     _AttackDamage = 30;
-    // std::cout << "FragTrap " << _Name << " created! " << name << std::endl;
+    std::cout << "FragTrap " << _Name << " created! " << name << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &other): ClapTrap(other){
     _HitPoints = other._HitPoints;
     _EnergyPoints = other._EnergyPoints;
     _AttackDamage = other._AttackDamage;
-    // std::cout << "FragTrap copy constructor called for " << other._Name << std::endl;
+    std::cout << "FragTrap copy constructor called for " << other._Name << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &other)
@@ -26,7 +26,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
     {
         ClapTrap::operator=(other);
     }
-    // std::cout << "FragTrap assignment operator called for " << other._Name << std::endl;
+    std::cout << "FragTrap assignment operator called for " << other._Name << std::endl;
     return *this;
 }
 

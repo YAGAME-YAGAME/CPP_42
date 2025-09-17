@@ -17,7 +17,6 @@ NAME = ScavTrap
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(GREEN)Compiling ...$(RESET)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)Compilation is complete! the Executable is ready! $(NAME)$(RESET)"
 

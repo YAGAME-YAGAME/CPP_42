@@ -3,7 +3,7 @@
 
 
 
-DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), _Name("") {
+DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), _Name("Default_Diamond") {
     _HitPoints = FragTrap::_HitPoints;
     _EnergyPoints = ScavTrap::_EnergyPoints;
     _AttackDamage = FragTrap::_AttackDamage;

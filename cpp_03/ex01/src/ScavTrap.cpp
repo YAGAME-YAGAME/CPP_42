@@ -16,7 +16,9 @@ ScavTrap::ScavTrap(const std::string &name): ClapTrap(name) {
     std::cout << "ScavTrap " << _Name << " created!" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &other): ClapTrap(other) {};
+ScavTrap::ScavTrap(ScavTrap const &other): ClapTrap(other) {
+    std::cout << "ScavTrap " << _Name << " copied!" << std::endl;
+};
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &other) {
     if (this != &other) {
