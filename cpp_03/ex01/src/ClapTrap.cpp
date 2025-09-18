@@ -1,3 +1,4 @@
+
 #include "../headers/ClapTrap.hpp"
 
 
@@ -8,7 +9,7 @@ ClapTrap::ClapTrap(): _Name(""), _HitPoints(10), _EnergyPoints(10), _AttackDamag
 
 ClapTrap::ClapTrap(const std::string &name): _Name(name),_HitPoints(10),_EnergyPoints(10),_AttackDamage(0){
     std::cout<<"ClapTrap " << _Name << " created!" << std::endl;
-};
+}
 
 ClapTrap::ClapTrap(const ClapTrap &other): _Name(other._Name), _HitPoints(other._HitPoints), _EnergyPoints(other._EnergyPoints), _AttackDamage(other._AttackDamage){};
 
@@ -26,7 +27,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other){
 
 ClapTrap::~ClapTrap(){
     std::cout<<"ClapTrap " << _Name << " destroyed!" << std::endl;
-};
+}
 
 
 // member functions
@@ -40,7 +41,7 @@ void ClapTrap::attack(const std::string& target){
     _EnergyPoints--;
     std::cout<<"ClapTrap " << _Name << " attacks " << target << " causing " << _AttackDamage << " points of damage!" << std::endl;
 
-};
+}
 
 void ClapTrap::takeDamage(int amount){
     if (!_HitPoints)
@@ -53,7 +54,7 @@ void ClapTrap::takeDamage(int amount){
     else
         _HitPoints -= amount;
     std::cout<<"ClapTrap " << _Name << " takes damage of " << amount << " points, remaining Hit Points: " << _HitPoints << std::endl;
-};
+}
 
 void ClapTrap::beRepaired(int amount){
     if (!_EnergyPoints)
@@ -64,4 +65,4 @@ void ClapTrap::beRepaired(int amount){
     _HitPoints += amount;
     _EnergyPoints--;
     std::cout<<"ClapTrap " << _Name << " is repaired by " << amount << " points, new Hit Points: " << _HitPoints << std::endl;
-};
+}

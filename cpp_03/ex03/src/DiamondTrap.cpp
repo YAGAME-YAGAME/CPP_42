@@ -11,7 +11,7 @@ DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), _Name("Default_
     std::cout << "DiamondTrap default constructor called!" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), _Name(name) {
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_claptrap"), FragTrap(name), ScavTrap(name), _Name(name) {
     _HitPoints = FragTrap::_HitPoints;
     _EnergyPoints = ScavTrap::_EnergyPoints;
     _AttackDamage = FragTrap::_AttackDamage + 10;
@@ -38,9 +38,9 @@ DiamondTrap::~DiamondTrap() {
 }
 
 void DiamondTrap::whoAmI() {
-    if (_Name.empty()) {
-        std::cout << "I am an unnamed DiamondTrap and my ClapTrap name is " << YELLOW << ClapTrap::_Name<<RESET <<std::endl;
-    } else {
+    // if (_Name.empty()) {
+    //     std::cout << "I am DiamondTrap <<  and my ClapTrap name is " << YELLOW << ClapTrap::_Name<<RESET <<std::endl;
+    // } else {
         std::cout << "I am DiamondTrap " <<RED << _Name <<RESET<< " and my ClapTrap name is "<< YELLOW << ClapTrap::_Name<<RESET << std::endl;
-    }
+    // }
 }
