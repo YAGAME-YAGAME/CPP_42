@@ -1,16 +1,22 @@
 #include "../headers/ClapTrap.hpp"
 
+ClapTrap::ClapTrap(): _Name("default_claptrap"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
+    std::cout << "ClapTrap default constructor called " << std::endl;
 
-ClapTrap::ClapTrap(): _Name(""), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
-    std::cout << "ClapTrap default constructor called!" << std::endl;
 }
 
 
 ClapTrap::ClapTrap(const std::string &name): _Name(name),_HitPoints(10),_EnergyPoints(10),_AttackDamage(0){
-    std::cout<<"ClapTrap " <<RED << _Name <<RESET<< " created!" << std::endl;
+    std::cout << "ClapTrap " <<RED << _Name <<RESET<< " created! : by Named constructor" << std::endl;
+
 };
 
-ClapTrap::ClapTrap(const ClapTrap &other): _Name(other._Name), _HitPoints(other._HitPoints), _EnergyPoints(other._EnergyPoints), _AttackDamage(other._AttackDamage){};
+ClapTrap::ClapTrap(const ClapTrap &other): _Name(other._Name), 
+_HitPoints(other._HitPoints), _EnergyPoints(other._EnergyPoints), 
+_AttackDamage(other._AttackDamage){
+    std::cout << "ClapTrap " <<RED << _Name <<RESET<< " created! : by copy constructor" << std::endl;
+
+};
 
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &other){
@@ -21,11 +27,13 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other){
         this->_EnergyPoints = other._EnergyPoints;
         this->_AttackDamage = other._AttackDamage;
     }
+    std::cout << "ClapTrap " <<RED << _Name <<RESET<< " created! : by assignemet operator " << std::endl;
+
     return *this;
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout<<"ClapTrap  destructor called for " <<RED << _Name <<RESET<< std::endl;
+    std::cout << "ClapTrap " <<RED << _Name <<RESET<< " destroyed!" << std::endl;
 };
 
 
@@ -34,7 +42,7 @@ ClapTrap::~ClapTrap(){
 void ClapTrap::attack(const std::string& target){
     if (!_EnergyPoints || !_HitPoints)
     {
-        std::cout<<"ClapTrap " <<RED << _Name <<RESET<< " can't attack " << target << std::endl;
+        std::cout<<"ClapTrap " << RED << _Name <<RESET<< " is already Died, so can't attack " << target << std::endl;
         return ;
     }
     _EnergyPoints--;
@@ -42,10 +50,10 @@ void ClapTrap::attack(const std::string& target){
 
 };
 
-void ClapTrap::takeDamage(int amount){
+void ClapTrap::takeDamage(unsigned int amount){
     if (!_HitPoints)
     {
-        std::cout<<"ClapTrap " <<RED << _Name <<RESET<< " is already destroyed and can't take more damage." << std::endl;
+        std::cout<<"ClapTrap " <<RED << _Name <<RESET<< " is already Died, so can't take more damage." << std::endl;
         return ;
     }
     if (amount > _HitPoints)
@@ -55,10 +63,15 @@ void ClapTrap::takeDamage(int amount){
     std::cout<<"ClapTrap " <<RED << _Name <<RESET<< " takes damage of " << amount << " points, remaining Hit Points: " << _HitPoints << std::endl;
 };
 
-void ClapTrap::beRepaired(int amount){
-    if (!_EnergyPoints )
+void ClapTrap::beRepaired(unsigned int amount){
+    if (!_EnergyPoints || !_HitPoints)
     {
-        std::cout << "ClapTrap " <<RED << _Name <<RESET<< " doesn't have enough energy to repair!" << std::endl;
+        std::cout << "ClapTrap " <<RED << _Name <<RESET<< " can't repaire someone who is already died " << std::endl;
+        return;
+    }
+    if(amount == 0)
+    {
+        std::cout <<"ClapTrap " <<RED << _Name <<RESET<< " the amount must be great than 0 to repaire " << std::endl;
         return;
     }
     _HitPoints += amount;

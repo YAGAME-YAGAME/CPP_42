@@ -1,18 +1,43 @@
 #include "../headers/ClapTrap.hpp"
 #include "../headers/ScavTrap.hpp"
 
-// Color codes
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-#define BOLD    "\033[1m"
 
 int main() {
     
+    std::cout << BOLD << CYAN << "\n=== Start ScavTrap Testing ===" << RESET << std::endl;
+    
+    std::cout << BOLD << GREEN << "\n--- Test 1: ScavTrap Default Constructor ---" << RESET << std::endl;
+    ScavTrap scav_otmane;
+    ScavTrap scav_mouad;
+
+    std::cout << BOLD << GREEN << "\n--- Test 2: ScavTrap Named Constructor ---" << RESET << std::endl;
+    ScavTrap scav("YAGAME");
+    
+    std::cout << BOLD << GREEN << "\n--- Test 3: ScavTrap Copy Constructor ---" << RESET << std::endl;
+    ScavTrap  scav2(scav);
+    
+
+    std::cout << BOLD << GREEN << "\n--- Test 3.5: ScavTrap Assignemet operator ---" << RESET << std::endl;
+    scav2 = scav;
+
+    std::cout << BOLD << GREEN << "\n--- Test 4: ScavTrap Attack ---" << RESET << std::endl;
+    scav.attack("OTMANE");
+
+    
+    // Test guard gate special ability
+    std::cout << BOLD << GREEN << "\n--- Test 5: Guard Gate ---" << RESET << std::endl;
+    scav.guardGate();
+    
+    // Test inherited functions
+    std::cout << BOLD << GREEN << "\n--- Test 6: Inherited Functions ---" << RESET << std::endl;
+    scav.takeDamage(30);
+    scav.beRepaired(15);
+    scav.takeDamage(90);
+    scav.attack("JOKER");
+    scav.beRepaired(20);
+    
+    
+    std::cout << BOLD << CYAN << "\n=== Destructor  ===" << RESET << std::endl;
     // // Test 1: Default constructor
     // std::cout << BOLD << GREEN << "\n--- Test 1: Default Constructor ---" << RESET << std::endl;
     // ClapTrap defaultClap;
@@ -79,35 +104,7 @@ int main() {
     // std::cout << BOLD << CYAN << "\n=== Claptrap Testing Complete ===" << RESET << std::endl;
     
     // ScavTrap Tests
-    std::cout << BOLD << CYAN << "\n=== Start ScavTrap Testing ===" << RESET << std::endl;
     
-    // Test ScavTrap construction
-    std::cout << BOLD << GREEN << "\n--- Test 1: ScavTrap Constructor ---" << RESET << std::endl;
-    ScavTrap scav("YAGAME");
-    
-    std::cout << BOLD << GREEN << "\n--- Test 2: ScavTrap Copy Constructor ---" << RESET << std::endl;
-    ScavTrap  scav2(scav);
-    scav2.attack("OTMANE");
-
-    // Test ScavTrap attack (different from ClapTrap)
-    std::cout << BOLD << GREEN << "\n--- Test 3: ScavTrap Attack ---" << RESET << std::endl;
-    scav.attack("OTMANE");
-    
-    // Test guard gate special ability
-    std::cout << BOLD << GREEN << "\n--- Test 4: Guard Gate ---" << RESET << std::endl;
-    scav.guardGate();
-    
-    // Test inherited functions
-    std::cout << BOLD << GREEN << "\n--- Test 5: Inherited Functions ---" << RESET << std::endl;
-    scav.takeDamage(30);
-    scav.beRepaired(15);
-    
-    // Test copy constructor
-    std::cout << BOLD << GREEN << "\n--- Test 6: ScavTrap Copy ---" << RESET << std::endl;
-    ScavTrap scavCopy(scav);
-    scavCopy.guardGate();
-    
-    std::cout << BOLD << CYAN << "\n=== ScavTrap Testing Complete ===" << RESET << std::endl;
     
     return 0;
 }

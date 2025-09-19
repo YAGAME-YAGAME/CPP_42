@@ -3,23 +3,25 @@
 
 
 
-DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), _Name("Default_Diamond") {
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(),FragTrap() {
+    ClapTrap::_Name = "Default_Diamond_ClapTrap";
+    _Name = "Default_Diamond";
     _HitPoints = FragTrap::_HitPoints;
-    _EnergyPoints = ScavTrap::_EnergyPoints;
-    _AttackDamage = FragTrap::_AttackDamage;
-    
+    _EnergyPoints = 50;
+    _AttackDamage = FragTrap::_AttackDamage ;
     std::cout << "DiamondTrap default constructor called!" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_claptrap"), FragTrap(name), ScavTrap(name), _Name(name) {
+DiamondTrap::DiamondTrap(const std::string &name): ClapTrap(name + "_claptrap"), ScavTrap(name), FragTrap(name) {
+    _Name = name;
     _HitPoints = FragTrap::_HitPoints;
-    _EnergyPoints = ScavTrap::_EnergyPoints;
-    _AttackDamage = FragTrap::_AttackDamage + 10;
-    std::cout << "DiamondTrap " <<RED << _Name <<RESET<< " created!" << std::endl;
+    _EnergyPoints = 50;
+    _AttackDamage = FragTrap::_AttackDamage;
+    std::cout << "DiamondTrap " <<RED << _Name <<RESET<< " created!: by Name constructor " << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), FragTrap(other), ScavTrap(other), _Name(other._Name) {
-    std::cout << "DiamondTrap copy constructor called for " <<RED << _Name <<RESET<< std::endl;
+DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other),  ScavTrap(other),FragTrap(other), _Name(other._Name) {
+    std::cout << "DiamondTrap" <<RED << _Name <<RESET<< "created!: by copy constructor " << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap &other) {
@@ -28,7 +30,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &other) {
         FragTrap::operator=(other);
         ScavTrap::operator=(other);
         _Name = other._Name;
-        std::cout << "DiamondTrap assignment operator called for " << _Name << std::endl;
+    std::cout << "DiamondTrap" <<RED << _Name <<RESET<< "created!: by assignemet operator " << std::endl;
     }
     return *this;
 }
@@ -38,9 +40,6 @@ DiamondTrap::~DiamondTrap() {
 }
 
 void DiamondTrap::whoAmI() {
-    // if (_Name.empty()) {
-    //     std::cout << "I am DiamondTrap <<  and my ClapTrap name is " << YELLOW << ClapTrap::_Name<<RESET <<std::endl;
-    // } else {
-        std::cout << "I am DiamondTrap " <<RED << _Name <<RESET<< " and my ClapTrap name is "<< YELLOW << ClapTrap::_Name<<RESET << std::endl;
-    // }
+    
+    std::cout << "I am DiamondTrap " <<RED << _Name <<RESET<< " and my ClapTrap name is "<< YELLOW << ClapTrap::_Name<<RESET << std::endl;
 }

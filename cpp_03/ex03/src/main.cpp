@@ -13,84 +13,95 @@
 #define BOLD    "\033[1m"
 
 int main() {
-    
-    // std::cout << "========== FragTrap Tests ==========" << std::endl;
-    // // Construction test (ClapTrap → FragTrap)
-    // FragTrap koju;
-    // FragTrap gogo("GoGo");
-    // FragTrap frag("juju");
-    // koju = frag;
+    {
+    std::cout<< YELLOW <<  std::endl << "======== start testing ========" << RESET << std::endl;
 
-    // // koju.displyaInfo();
+    std::cout << BOLD << GREEN << "\n----> default constructor <----" << RESET << std::endl;
+    DiamondTrap test1;
+    DiamondTrap test2;
+    test1.whoAmI();
+
+
+    std::cout << BOLD << GREEN << "\n----> Named constructor <----" << RESET << std::endl;
+    DiamondTrap joker("JOKER");
+    DiamondTrap batman("BATMAN");
+    DiamondTrap ironman("IRONMAN");
+
+    std::cout << BOLD << GREEN << "\n----> copy constructor <----" << RESET << std::endl;
+    DiamondTrap new_test(joker);
+    DiamondTrap tt = joker;
+
+    std::cout << BOLD << GREEN << "\n----> assignemet operator <----" << RESET << std::endl;
+    new_test = ironman;
+
+    std::cout << BOLD << GREEN << "\n----> new member function <----" << RESET << std::endl;
+
+    joker.whoAmI();
+    batman.whoAmI();
+    ironman.whoAmI();
+
+    std::cout << "\n";
+
+    for(int i = 0; i < 3; i++)
+    {
+        joker.attack("BATMAN");
+        batman.takeDamage(30);
+    }
+
+    std::cout<< std::endl;
+    joker.attack("IRONMAN");
+    ironman.takeDamage(20);
+    ironman.highFivesGuys();
+    ironman.attack("JOKER");
+    batman.guardGate();
+    ironman.attack("batman");
+    batman.takeDamage(30);
+    batman.attack("joker");
+    batman.beRepaired(5);
+    batman.takeDamage(10);
+    ironman.beRepaired(7);
+
+
+    std::cout<< std::endl << RED << "------------ Destructor ------------\n" << RESET << std::endl;
+    }
+    // std::cout << std::endl << BOLD << YELLOW<< "========== DiamondTrap Tests ==========" << RESET << std::endl;
     
+    // std::cout << BOLD << GREEN<< "\n----> Test 1 : Default constructor <----" << RESET << std::endl;
+    // DiamondTrap diamond1;
     // std::cout << std::endl;
-    // // gogo.displyaInfo(); // Display info of gogo
-    // // frag.displyaInfo(); // Display info of frag
+    // DiamondTrap diamond2;
+    // std::cout <<std::endl;
+
+    // std::cout << BOLD << GREEN<< "\n----> Test 2 : Named constructor <----" << RESET << std::endl;
+    // DiamondTrap coirtz("COIRTZ");
+    // DiamondTrap monster("MONSTER");
+    // DiamondTrap yagame("YAGAME");
+    // std::cout << std::endl;
+    
+    // std::cout << BOLD << GREEN<< "\n----> Test 3 : copy constructor <----" << RESET << std::endl;
+
+    // DiamondTrap  otmane(coirtz);
+    // DiamondTrap  mouad(monster);
     // std::cout << std::endl;
 
-    // frag.attack("Enemy");
-    // frag.takeDamage(60);
+    // std::cout << BOLD << GREEN<< "\n----> Test 4 : copy assignement operator <----" << RESET << std::endl;
+    
+    // otmane = diamond1;
     // std::cout << std::endl;
-    // // frag.displyaInfo(); // Display info of frag
-
-    // std::cout << std::endl;
-    // frag.beRepaired(10);
-    // frag.highFivesGuys();
-    // frag.attack("Enemy2");
-    // frag.takeDamage(95);
-    // frag.attack("Enemy3");
-    // frag.beRepaired(50);
-    // // frag.displyaInfo(); // Display info of frag
-
-    std::cout << std::endl << BOLD << YELLOW<< "========== DiamondTrap Tests ==========" << RESET << std::endl;
     
-    std::cout << BOLD << GREEN<< "\n----> Test 1 : Default constructor <----\n" << RESET << std::endl;
-    DiamondTrap diamond1;
-    std::cout << std::endl;
-    DiamondTrap diamond2;
-    std::cout <<std::endl;
-    
-    std::cout << BOLD << GREEN<< "\n----> Test 2 : Named constructor <----\n" << RESET << std::endl;
-    DiamondTrap coirtz("COIRTZ");
-    DiamondTrap jaj("JAJ");
-    std::cout << std::endl;
-    
-    std::cout << BOLD << GREEN<< "\n----> Test 3 : copy constructor <----\n" << RESET << std::endl;
-
-    DiamondTrap  otmane(coirtz);
-    DiamondTrap  mouad(jaj);
-    std::cout << std::endl;
-
-    
-    
-    // Test whoAmI function
+    // std::cout << BOLD << GREEN<< "\n----> Test 5 : Test whoAmI function <----" << RESET << std::endl;
+  
     // diamond1.whoAmI();
     // diamond2.whoAmI();
-    
-    std::cout << std::endl;
-    
-    // // Test attack (should use ScavTrap's attack)
-    // diamond2.attack("target1");
-    // diamond2.takeDamage(30);
-    // diamond2.beRepaired(20);
-    
+    // coirtz.whoAmI();
+    // monster.whoAmI();
+    // otmane.whoAmI();
     // std::cout << std::endl;
     
-    // // Test special abilities inherited from both parents
-    // diamond2.guardGate();  // From ScavTrap
-    // diamond2.highFivesGuys();  // From FragTrap
-    
-    // std::cout << std::endl;
-    
-    // // Test copy constructor and assignment
-    // DiamondTrap diamond3(diamond2);
-    // DiamondTrap diamond4("Test");
-    // diamond4 = diamond2;
-    
-    // diamond3.whoAmI();
-    // diamond4.whoAmI();
-
-    std::cout<< std::endl << "------------ Destructor ------------" << std::endl;
-    
+    // std::cout << BOLD << GREEN<< "\n----> Test 6 : Test member functions <----" << RESET << std::endl;
+    // yagame.attack("MONSTER");
+    // monster.takeDamage(30);
+    // monster.guardGate();
+    // monster.beRepaired(5);
     return 0;
 }

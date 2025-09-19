@@ -12,7 +12,7 @@ RESET = \033[0m
 
 SRCS = src/main.cpp src/ClapTrap.cpp src/ScavTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = ScavTrap
+NAME = scavTrap
 
 all: $(NAME)
 
